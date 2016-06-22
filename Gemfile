@@ -35,6 +35,7 @@ gem 'pundit'
 gem "avatarly"
 gem 'decent_exposure', '3.0.0.beta2'
 gem "paperclip", "~> 5.0.0.beta1"
+gem 'will_paginate', '~> 3.1.0'
 
 group :development do
   gem "better_errors"

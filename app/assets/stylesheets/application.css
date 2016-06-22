@@ -11,6 +11,12 @@
  * file per style scope.
  *
 	*= require morris.js/morris
+	*= require datatables/media/css/jquery.dataTables.min
+	*= require datatables/media/css/buttons.bootstrap.min
+	*= require datatables/media/css/fixedHeader.bootstrap.min
+	*= require datatables/media/css/responsive.bootstrap.min
+	*= require datatables/media/css/scroller.bootstrap.min
+
 	*= require bootstrap
 	*= require core
 	*= require components
@@ -18,6 +24,7 @@
 	*= require pages
 	*= require menu
 	*= require responsive
+
 	
 
 	*= require_tree .

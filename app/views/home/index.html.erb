@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= render partial: "common/page_title", locals:{ page_title: "Dashboard" } %>
+<% end %>
+
 <% content_for :javascript do %>
   <script type="text/javascript">
     ShopifyApp.ready(function(){
@@ -9,7 +13,9 @@
   </script>
 <% end %>
 
-<h2>Products</h2>
+
+<%= render partial: "common/variants_datatable" %>
+
 
 <ul>
   <% @products.each do |product| %>
