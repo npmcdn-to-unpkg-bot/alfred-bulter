@@ -36,6 +36,7 @@ gem "avatarly"
 gem 'decent_exposure', '3.0.0.beta2'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'will_paginate', '~> 3.1.0'
+gem 'rollbar'
 
 group :development do
   gem "better_errors"
