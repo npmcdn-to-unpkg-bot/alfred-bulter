@@ -37,6 +37,7 @@ gem 'decent_exposure', '3.0.0.beta2'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'will_paginate', '~> 3.1.0'
 gem 'rollbar'
+gem 'rails_12factor', group: :production
 
 group :development do
   gem "better_errors"
