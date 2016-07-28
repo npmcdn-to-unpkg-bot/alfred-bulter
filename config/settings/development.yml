@@ -1,1 +1,5 @@
 features: { force_redirect: false }
+shopify:
+  api:
+    key: 22aaa2abce5e0a5c2de004d8788f0018
+    secret: 922a63eec36a8e9f41a86ed8a3732b00
