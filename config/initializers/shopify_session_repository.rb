@@ -21,7 +21,7 @@
 # end
 
 if Rails.env.production?  
-	ShopifySessionRepository.storage = 'Shop'
+	ShopifyApp::SessionRepository.storage = 'Shop'
 else
 	ShopifyApp::SessionRepository.storage = InMemorySessionStore
 end
