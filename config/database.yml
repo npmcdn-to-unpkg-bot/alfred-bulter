@@ -82,6 +82,8 @@ test:
 #
 production:
   <<: *default
-  database: alfred_production
-  username: alfred
-  password: <%= ENV['ALFRED_DATABASE_PASSWORD'] %>
+  host: ec2-54-163-240-204.compute-1.amazonaws.com
+  port: 5432
+  database: dal3b11m0kf0o8
+  username: htnsllxujephsr
+  password: Tj-xMobMMuW3NTVJrp9bxl1M3Q
