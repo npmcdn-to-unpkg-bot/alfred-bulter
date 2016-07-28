@@ -27,6 +27,7 @@ module Alfred
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.precompile += %w(.svg .eot .woff .ttf)
     
   end
 end
