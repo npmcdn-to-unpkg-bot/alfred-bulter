@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 
 //= reuqire modernizr.min
 //= require jquery.min
