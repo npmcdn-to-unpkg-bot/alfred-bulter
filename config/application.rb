@@ -27,6 +27,6 @@ module Alfred
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     
-    config.assets.enabled = false
+    config.assets.serve_static_files = true
   end
 end
