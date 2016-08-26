@@ -1,0 +1,32 @@
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "New Setup Reqest",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+
+    $(document).ready(function(){
+      $(".navigation-menu li").removeClass("active");
+      $(".dashboard-navigation").addClass("active");
+    })
+
+  </script>
+<% end %>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">       
+          <div class="row">
+            <div class="col-lg-12">
+              <h2 class="header-title m-t-0 m-b-30">
+                <%= @setup.index_link %> / <%= @setup.new_link %>
+              </h2>
+              <%= render partial: "setup_requests/form", locals: { setup: @steup } %>
+            </div><!-- end col -->
+          </div><!-- end row -->
+        </div>
+    </div><!-- end col -->
+</div>

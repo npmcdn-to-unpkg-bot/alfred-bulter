@@ -1,0 +1,22 @@
+<% content_for :head do %>
+  <%= render partial: "common/page_title", locals:{ page_title: "Dashboard" } %>
+<% end %>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+
+	$(document).ready(function(){
+		$(".navigation-menu li").removeClass("active");
+		$(".products-navigation").addClass("active");
+	})
+
+  </script>
+<% end %>
+
+<%= render partial: "common/products_datatable" %>

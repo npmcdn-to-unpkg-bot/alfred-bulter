@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <%= render partial: "common/page_title", locals:{ page_title: "Product Importer" } %>
+<% end %>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+
+    $(document).ready(function(){
+      $(".navigation-menu li").removeClass("active");
+      $(".products-profile-navigation").addClass("active");
+    })
+
+  </script>
+<% end %>

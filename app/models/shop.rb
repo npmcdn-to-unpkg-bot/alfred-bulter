@@ -5,6 +5,10 @@ class Shop < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  has_many :products
+  has_many :setup_requests
+  has_many :profiles
+
   def generate_avatar
   	img = Avatarly.generate_avatar(self.shopify_domain[0].to_s.capitalize, opts={})
   	file = Tempfile.new([self.shopify_domain, '.png'])

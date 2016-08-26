@@ -1,4 +1,5 @@
-features: { force_redirect: false }
+features:
+  force_redirect: false
 shopify:
   api:
     key: 22aaa2abce5e0a5c2de004d8788f0018

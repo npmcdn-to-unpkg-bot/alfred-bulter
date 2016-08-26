@@ -17,6 +17,8 @@
 	*= require datatables/media/css/responsive.bootstrap.min
 	*= require datatables/media/css/scroller.bootstrap.min
 
+	*= require select2/dist/css/select2.min
+
 	*= require bootstrap
 	*= require core
 	*= require components

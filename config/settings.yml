@@ -1,0 +1,11 @@
+features:
+  zopim: false
+source_type:
+  online_file: "Online File"
+  google_spreadsheet: "Google Spreadsheet"
+  dropbox: "Dropbox"
+file_format:
+  csv:  "CSV  - Comma Separated Values"
+  xml:  "XML  - eXtensible Markup Language"
+  xls:  "Xls  - Microsoft Excel"
+  xlsx: "Xlsx - Microsoft Excel Open XML Format Spreadsheet"

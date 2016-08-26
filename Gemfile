@@ -39,6 +39,9 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'will_paginate', '~> 3.1.0'
 gem 'rollbar'
 gem 'rails_12factor', group: :production
+gem 'state_machines-activerecord'
+gem 'react-flux-rails'
+
 
 group :development do
   gem "better_errors"

@@ -1,4 +1,6 @@
-features: { force_redirect: true }
+features:
+  force_redirect: true
+  zopim: false
 shopify:
   api:
     key: 6256fc15658bcc9c9d8ce59b3198af6f

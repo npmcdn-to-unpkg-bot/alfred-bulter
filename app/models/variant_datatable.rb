@@ -1,5 +1,5 @@
 class VariantDatatable < Datatable
-  delegate :params, :h, :link_to, :time_ago_in_words, :current_shop, :update_ignore_home_index_url, to: :@view
+  delegate :params, :h, :link_to, :time_ago_in_words, :current_shop, to: :@view
 
   def initialize(view)
     @view = view

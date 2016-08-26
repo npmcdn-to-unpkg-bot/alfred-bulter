@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
    
     if curr_shop.present?
     	begin
-    		curr_shop.generate_avatar unless curr_shop.avatar.exists?
+    		#curr_shop.generate_avatar unless curr_shop.avatar.exists?
     		curr_shop.get_email if curr_shop.present? and curr_shop.email.blank?
     		curr_shop = curr_shop.decorate
     	rescue => e
@@ -30,6 +30,11 @@ class ApplicationController < ActionController::Base
   	shop_domain = session[:shopify_domain] if shop_domain.blank? and session[:shopify_domain].present?
     options.merge(:shop => shop_domain)
   end
+
+  def permitted_params
+    @permitted_params ||= PermittedParams.new(params)
+  end
+  helper_method :permitted_params
 
 
 

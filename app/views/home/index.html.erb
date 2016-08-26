@@ -1,8 +1,8 @@
-<% content_for :head do %>
-  <%= render partial: "common/page_title", locals:{ page_title: "Dashboard" } %>
-<% end %>
 
 <% content_for :javascript do %>
+  <%= render partial: "react/store/profile_store.js" %>
+  <%= render partial: "react/views/source_settings_form.js" %>
+
   <script type="text/javascript">
     ShopifyApp.ready(function(){
       ShopifyApp.Bar.initialize({
@@ -14,8 +14,97 @@
     $(document).ready(function(){
       $(".navigation-menu li").removeClass("active");
       $(".dashboard-navigation").addClass("active");
-    })
 
+      $('#progressbarwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+          var $total = navigation.find('li').length;
+          var $current = index+1;
+          var $percent = ($current/$total) * 100;
+          $('#progressbarwizard').find('.bar').css({width:$percent+'%'});
+      }, 'tabClass': 'nav nav-tabs navtab-wizard nav-justified'});
+
+    })
+    ReactDOM.renderComponent(SourceSettingsForm, document.getElementById('source_div'));
   </script>
 <% end %>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card-box">       
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="header-title m-t-0 m-b-30"><%= @profile.name %></h4>
+
+              <div id="progressbarwizard" class="pull-in">
+                  <ul class="bg-muted">
+                      <li><a href="#source_div" data-toggle="tab">1. Source Settings</a></li>
+                      <li><a href="#profile_div" data-toggle="tab">2. Profile Settings</a></li>
+                      <li><a href="#advance_div" data-toggle="tab">3. Advance Settings</a></li>
+                  </ul>
+
+                  <div class="tab-content m-b-0">
+
+                      <div id="bar" class="progress progress-striped progress-bar-primary-alt active">
+                          <div class="bar progress-bar progress-bar-primary"></div>
+                      </div>
+
+                      <div class="tab-pane p-t-10 fade" id="source_div">
+                      </div>
+                      <div class="tab-pane p-t-10 fade" id="profile_div">
+                          <div class="row">
+                              <div class="form-group clearfix">
+                                  <label class="col-lg-2 control-label" for="name1"> First name *</label>
+                                  <div class="col-lg-10">
+                                      <input id="name1" name="name" type="text" class="required form-control">
+                                  </div>
+                              </div>
+                              <div class="form-group clearfix">
+                                  <label class="col-lg-2 control-label " for="surname1"> Last name *</label>
+                                  <div class="col-lg-10">
+                                      <input id="surname1" name="surname" type="text" class="required form-control">
+
+                                  </div>
+                              </div>
+
+                              <div class="form-group clearfix">
+                                  <label class="col-lg-2 control-label " for="email1">Email *</label>
+                                  <div class="col-lg-10">
+                                      <input id="email1" name="email" type="text" class="required email form-control">
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="tab-pane p-t-10 fade" id="advance_div">
+                          <div class="row">
+                              <div class="form-group clearfix">
+                                  <div class="col-lg-12">
+                                      <div class="checkbox checkbox-primary">
+                                          <input id="checkbox-h1" type="checkbox">
+                                          <label for="checkbox-h1">
+                                              I agree with the Terms and Conditions.
+                                          </label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <ul class="pager m-b-0 wizard">
+                          <li class="previous first" style="display:none;"><a href="#">First</a></li>
+                          <li class="next last" style="display:none;"><a href="#">Last</a></li>
+                          <li class="previous"><a href="#" class="btn btn-primary waves-effect waves-light">Previous</a></li>
+                          <li class="next"><a href="#" class="btn btn-primary waves-effect waves-light">Next</a></li>
+                      </ul>
+
+                  </div>
+              </div>
+
+
+
+            </div><!-- end col -->
+          </div><!-- end row -->
+        </div>
+    </div><!-- end col -->
+</div>
 

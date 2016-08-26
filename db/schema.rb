@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622071206) do
+ActiveRecord::Schema.define(version: 20160825135046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,44 @@ ActiveRecord::Schema.define(version: 20160622071206) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "products", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.string   "shopify_product_id"
+    t.string   "title"
+    t.text     "body_html"
+    t.string   "vendor"
+    t.string   "product_type"
+    t.string   "handle"
+    t.string   "template_suffix"
+    t.string   "published_scope"
+    t.string   "tags"
+    t.text     "options"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "products", ["shop_id"], name: "index_products_on_shop_id", using: :btree
+  add_index "products", ["shopify_product_id"], name: "index_products_on_shopify_product_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "shop_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "setup_requests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "shop_id"
+    t.string   "source_type"
+    t.string   "file_format"
+    t.string   "state",       default: "pending", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.text     "description"
+    t.string   "subject"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string   "shopify_domain",      null: false
     t.string   "shopify_token",       null: false
@@ -62,5 +100,36 @@ ActiveRecord::Schema.define(version: 20160622071206) do
   end
 
   add_index "shops", ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true, using: :btree
+
+  create_table "stocks", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.integer  "product_id"
+    t.string   "shopify_variant_id"
+    t.string   "title"
+    t.decimal  "price",                  precision: 8, scale: 2
+    t.string   "sku"
+    t.integer  "position"
+    t.integer  "grams"
+    t.string   "inventory_policy"
+    t.decimal  "compare_at_price",       precision: 8, scale: 2
+    t.string   "fulfillment_service"
+    t.string   "inventory_management"
+    t.string   "option1"
+    t.string   "option2"
+    t.string   "option3"
+    t.boolean  "taxable"
+    t.string   "barcode"
+    t.integer  "inventory_quantity"
+    t.decimal  "weight",                 precision: 8, scale: 2
+    t.string   "weight_unit"
+    t.integer  "old_inventory_quantity"
+    t.boolean  "requires_shipping"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
+  add_index "stocks", ["shop_id"], name: "index_stocks_on_shop_id", using: :btree
+  add_index "stocks", ["shopify_variant_id"], name: "index_stocks_on_shopify_variant_id", using: :btree
 
 end

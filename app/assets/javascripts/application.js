@@ -26,9 +26,9 @@
 //= require jquery.scrollTo.min
 
 //= require jquery-knob/dist/jquery.knob.min
-//= require morris.js/morris.min
 //= require raphael/raphael.min
-//= require jquery.dashboard
+
+//= require select2/dist/js/select2.full.min
 
 //= require datatables/media/js/jquery.dataTables.min
 //= require datatables/media/js/dataTables.bootstrap.js
@@ -48,5 +48,9 @@
 //= require datatable_cache
 //= require jquery.core
 //= require jquery.app
+//= require twitter-bootstrap-wizard/jquery.bootstrap.wizard
+//= require react-flux
 
-//= require_tree .
+//= require faq
+//= require setup_requests
+//= require stocks

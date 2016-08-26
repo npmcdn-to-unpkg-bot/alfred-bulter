@@ -14,6 +14,7 @@
                           <ul class="nav navbar-nav navbar-right pull-right">
                               <li>
                                   <!-- Notification -->
+                                  <!--
                                   <div class="notification-box">
                                       <ul class="list-inline m-b-0">
                                           <li>
@@ -27,17 +28,18 @@
                                           </li>
                                       </ul>
                                   </div>
+                                  -->
                                   <!-- End Notification bar -->
+
                               </li>
 
+                              <!--
                               <li class="dropdown user-box">
                                   <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
                                       <img src="<%= current_shop.avatar.url %>" alt="<%= current_shop.name %>" class="img-circle user-img">
-                                      <!--
                                       <div class="user-status away">
                                         <i class="zmdi zmdi-dot-circle"></i>
                                       </div>
-                                      -->
                                   </a>
 
                                   <ul class="dropdown-menu">
@@ -47,6 +49,7 @@
                                       <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                   </ul>
                               </li>
+                              -->
                           </ul>
                           <div class="menu-item">
                               <!-- Mobile menu toggle-->
@@ -75,8 +78,18 @@
                                 </a>
                               </li>
                               <li class="products-navigation">
-                                <a href="<%= stocks_url %>">
+                                <a href="<%= products_url %>">
                                   <i class="zmdi zmdi-collection-item"></i> <span> Products </span> 
+                                </a>
+                              </li>
+                              <li class="products-profile-navigation">
+                                <a href="<%= product_profiles_url %>">
+                                  <i class="zmdi zmdi-collection-item"></i> <span> Product Importer </span> 
+                                </a>
+                              </li>
+                              <li class="faq-navigation">
+                                <a href="<%= faq_index_url %>">
+                                  <i class="zmdi zmdi-help-outline"></i> <span> FAQ </span> 
                                 </a>
                               </li>
                           </ul>

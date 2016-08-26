@@ -5,8 +5,23 @@ Rails.application.routes.draw do
   
   root :to => 'home#index'
 
-  resources :stocks do
+  resources :products do
+
+  	resources :stocks do
   	
+  	end
+
+  end
+
+  resources :setup_requests do
+  end
+
+  resources :faq do
+
+  end
+
+  resources :product_profiles do
+    
   end
 
 

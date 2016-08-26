@@ -1,6 +1,14 @@
 class HomeController < ShopifyApp::AuthenticatedController
   def index
-	@products = ShopifyAPI::Product.find(:all, :params => {:limit => 10})
+	if current_shop.present?
+		@profile = current_shop.profiles.first
+		if @profile.blank?
+			@profile = current_shop.profiles.new
+			@profile.name = "My Profile"
+		end
+
+
+	end
   end
 
 end
